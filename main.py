@@ -7,6 +7,13 @@ from routers.issued_books import router as issued_router
 app = FastAPI(
     title="Library Management System API"
 )
+@app.get("/")
+def home():
+    return {
+        "message": "Welcome to Library Management System API",
+        "docs": "/docs",
+        "redoc": "/redoc"
+    }
 
 app.include_router(book_router)
 app.include_router(student_router)
